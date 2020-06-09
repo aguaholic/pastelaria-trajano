@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Banner from '../components/Banner'
+import QuickInfo from '../components/Home/QuickInfo'
 import { Button } from '../components/Button'
 import SEO from '../components/seo'
 
@@ -30,6 +31,7 @@ const IndexPage = ({ data }) => (
                 </Button>
             </Banner>
         </Hero>
+        <QuickInfo />
     </Layout>
 )
 
