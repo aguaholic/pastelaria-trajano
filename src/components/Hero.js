@@ -15,6 +15,7 @@ export default styled(Hero)`
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     opacity: 1 !important;
     display: flex;
     justify-content: center;
