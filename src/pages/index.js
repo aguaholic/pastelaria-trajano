@@ -8,6 +8,7 @@ import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import QuickInfo from '../components/Home/QuickInfo'
 import Gallery from '../components/Home/Gallery'
+import Menu from '../components/Menu'
 import { Button } from '../components/Button'
 import SEO from '../components/seo'
 
@@ -34,6 +35,7 @@ const IndexPage = ({ data }) => (
         </Hero>
         <QuickInfo />
         <Gallery />
+        <Menu />
     </Layout>
 )
 

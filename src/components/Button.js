@@ -20,6 +20,7 @@ export const Button = styled.button`
     }
 `
 export const SectionButton = styled(Button)`
+    font-size: 1.2rem;
     color: ${styles.colors.mainBlack};
     ${styles.border({ color: `${styles.colors.mainBlack}` })};
 
