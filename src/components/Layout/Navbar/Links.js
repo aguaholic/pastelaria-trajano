@@ -9,7 +9,11 @@ const Wrapper = styled.ul`
     li {
         list-style-type: none;
     }
-    .nav-link {
+
+    ${({ navbar }) =>
+        navbar &&
+        `
+        .nav-link {
         display: block;
         text-decoration: none;
         padding: 0.5rem 1rem;
@@ -18,15 +22,33 @@ const Wrapper = styled.ul`
         text-transform: capitalize;
         cursor: pointer;
         ${styles.transDefault};
+
         &:hover {
             background: ${styles.colors.mainGrey};
             color: ${styles.colors.mainYellow};
             padding: 0.5rem 1rem 0.5rem 1.3rem;
         }
     }
+
+    `}
     height: ${props => (props.isOpen ? '152px' : '0px')};
+
+    ${({ footer }) =>
+        footer &&
+        `
+        display: flex;
+        justify-content: space-around;
+        height: 20px;
+
+        &:hover {
+            background: #262626;
+            color: #d2aa5c;
+        }
+    `}
+
     overflow: hidden;
     ${styles.transObject({ time: '1s' })};
+
     @media (min-width: 768px) {
         height: auto;
         display: flex;
@@ -38,9 +60,9 @@ const Wrapper = styled.ul`
     }
 `
 
-const Links = ({ isOpen }) => {
+const Links = ({ isOpen, navbar, footer }) => {
     return (
-        <Wrapper isOpen={isOpen}>
+        <Wrapper isOpen={isOpen} navbar={navbar} footer={footer}>
             {links.map(link => {
                 return (
                     <li key={link.id}>

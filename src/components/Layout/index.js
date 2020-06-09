@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { createGlobalStyle } from 'styled-components'
 
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 const GlobalStyle = createGlobalStyle`
 /* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
             <GlobalStyle />
             <Navbar />
             {children}
+            <Footer />
         </>
     )
 }

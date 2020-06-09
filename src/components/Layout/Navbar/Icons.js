@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { styles } from '../../../utils'
 import icons from '../../../constants/icons'
@@ -22,7 +23,10 @@ const Wrapper = styled.div`
     .icon:hover {
         color: ${styles.colors.mainYellow};
     }
-    display: none;
+    display: ${props => (props.navbar ? 'none' : 'flex')};
+    width: ${props => (props.navbar ? 'none' : '10rem')};
+    justify-content: ${props => (props.navbar ? 'none' : ' space-around')};
+    margin: ${props => (props.navbar ? 'none' : '1rem  auto')};
 
     @media (min-width: 768px) {
         display: flex;
@@ -31,19 +35,20 @@ const Wrapper = styled.div`
     }
 `
 
-const Icons = () => {
+const Icons = ({ navbar }) => {
     return (
-        <Wrapper>
+        <Wrapper navbar={navbar}>
             {icons.map(icon => {
                 return (
-                    <a
+                    <AniLink
+                        fade
                         key={icon.id}
                         target="_blank"
                         rel="noreferrer"
-                        href={icon.url}
+                        to={icon.url}
                     >
                         {icon.icon}
-                    </a>
+                    </AniLink>
                 )
             })}
         </Wrapper>
