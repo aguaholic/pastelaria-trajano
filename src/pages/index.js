@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import QuickInfo from '../components/Home/QuickInfo'
+import Gallery from '../components/Home/Gallery'
 import { Button } from '../components/Button'
 import SEO from '../components/seo'
 
@@ -32,6 +33,7 @@ const IndexPage = ({ data }) => (
             </Banner>
         </Hero>
         <QuickInfo />
+        <Gallery />
     </Layout>
 )
 
