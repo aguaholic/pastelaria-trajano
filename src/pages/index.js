@@ -11,6 +11,7 @@ import Gallery from '../components/Home/Gallery'
 import Menu from '../components/Menu'
 import { Button } from '../components/Button'
 import SEO from '../components/seo'
+import Theme from '../components/Layout/Theme'
 
 const Link = styled(AniLink)`
     color: white;
@@ -19,24 +20,26 @@ const Link = styled(AniLink)`
     }
 `
 const IndexPage = ({ data }) => (
-    <Layout>
-        <SEO title="Home" />
-        <Hero home img={data.homeBcg.childImageSharp.fluid}>
-            <Banner
-                title="Trajano Pastelaria"
-                subtitle="Melhor pastel do mundo"
-            >
-                <Button>
-                    <Link fade to="/menu">
-                        Cardápio
-                    </Link>
-                </Button>
-            </Banner>
-        </Hero>
-        <QuickInfo />
-        <Gallery />
-        <Menu />
-    </Layout>
+    <Theme>
+        <Layout>
+            <SEO title="Home" />
+            <Hero home img={data.homeBcg.childImageSharp.fluid}>
+                <Banner
+                    title="Trajano Pastelaria"
+                    subtitle="Melhor pastel do mundo"
+                >
+                    <Button>
+                        <Link fade to="/menu">
+                            Cardápio
+                        </Link>
+                    </Button>
+                </Banner>
+            </Hero>
+            <QuickInfo />
+            <Gallery />
+            <Menu />
+        </Layout>
+    </Theme>
 )
 
 export const query = graphql`
