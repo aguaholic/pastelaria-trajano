@@ -20,8 +20,8 @@ export default [
         text: 'Contato',
     },
     {
-        id: 3,
-        path: '/address',
+        id: 4,
+        path: '/location',
         text: 'Localização',
     },
 ]

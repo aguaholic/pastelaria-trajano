@@ -41,5 +41,13 @@ module.exports = {
                 accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
             },
         },
+        {
+            resolve: 'gatsby-source-googlemaps-geocoding',
+            options: {
+                key: process.env.GOOGLE_MAPS_GEOCODING_API_KEY,
+                address:
+                    'Rua Armindo Tank, 139 - Vila Anita, Limeira - SP, 13484-299, Brazil',
+            },
+        },
     ],
 }
