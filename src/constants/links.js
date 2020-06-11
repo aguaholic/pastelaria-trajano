@@ -7,16 +7,21 @@ export default [
     {
         id: 1,
         path: '/about',
-        text: 'About',
+        text: 'Sobre',
     },
     {
         id: 2,
         path: '/menu',
-        text: 'Menu',
+        text: 'Cardápio',
     },
     {
         id: 3,
         path: '/contact',
-        text: 'Contact',
+        text: 'Contato',
+    },
+    {
+        id: 3,
+        path: '/address',
+        text: 'Localização',
     },
 ]

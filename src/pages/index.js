@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => (
             >
                 <Button>
                     <Link fade to="/menu">
-                        Menu
+                        Cardápio
                     </Link>
                 </Button>
             </Banner>
