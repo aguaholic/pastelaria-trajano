@@ -1,14 +1,37 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Layout from '../components/Layout'
+import Banner from '../components/Banner'
+import Hero from '../components/Hero'
 import SEO from '../components/seo'
+import { SectionButton } from '../components/Button'
 
-const NotFoundPage = () => (
+const NotFoundPage = ({ data }) => (
     <Layout>
         <SEO title="404: Not found" />
-        <h1>NOT FOUND</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <header className="error">
+            <Hero img={data.errorBcg.childImageSharp.fluid}>
+                <Banner title="OPS!" subtitle="Página não encontrada :/" />
+            </Hero>
+        </header>
+        <AniLink fade to="/" className="btn-white">
+            <SectionButton>Home </SectionButton>
+        </AniLink>
     </Layout>
 )
+
+export const query = graphql`
+    query {
+        errorBcg: file(relativePath: { eq: "bcg/errorBcg.jpeg" }) {
+            childImageSharp {
+                fluid {
+                    ...GatsbyImageSharpFluid_withWebp
+                }
+            }
+        }
+    }
+`
 
 export default NotFoundPage
