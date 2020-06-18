@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { styles } from '../../../utils'
 import icons from '../../../constants/icons'
@@ -40,15 +39,14 @@ const Icons = ({ navbar }) => {
         <Wrapper navbar={navbar}>
             {icons.map(icon => {
                 return (
-                    <AniLink
-                        fade
+                    <a
                         key={icon.id}
                         target="_blank"
                         rel="noreferrer"
-                        to={icon.url}
+                        href={icon.url}
                     >
                         {icon.icon}
-                    </AniLink>
+                    </a>
                 )
             })}
         </Wrapper>
