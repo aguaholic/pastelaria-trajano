@@ -31,8 +31,9 @@ const Item = styled.div`
 
 const getItems = graphql`
     query {
-        miniPasteis: allContentfulCardapio(
+        items: allContentfulCardapio(
             filter: { category: { eq: "minipastel" } }
+            limit: 4
         ) {
             edges {
                 node {
@@ -55,14 +56,14 @@ const getItems = graphql`
 `
 
 const Menu = () => {
-    const { miniPasteis } = useStaticQuery(getItems)
-    const items = miniPasteis.edges
+    const { items } = useStaticQuery(getItems)
+    const allItems = items.edges
 
     return (
         <Section>
             <Title title="São os mais pedidos" message="Esses" />
             <Item>
-                {items.map(({ node }) => {
+                {allItems.map(({ node }) => {
                     return <MenuItem key={node.id} item={node} />
                 })}
             </Item>
