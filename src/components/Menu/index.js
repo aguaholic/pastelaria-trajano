@@ -1,12 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import styled from 'styled-components'
 
 import MenuItem from './MenuItem'
 import Title from '../Title'
 import Section from '../Section'
-import { SectionButton } from '../Button'
 
 const Item = styled.div`
     margin: 3rem 0;
@@ -31,9 +29,7 @@ const Item = styled.div`
 
 const getItems = graphql`
     query {
-        miniPasteis: allContentfulCardapio(
-            filter: { category: { eq: "minipastel" } }
-        ) {
+        items: allContentfulCardapio {
             edges {
                 node {
                     id: contentful_id
@@ -44,8 +40,8 @@ const getItems = graphql`
                         description
                     }
                     image: imagem {
-                        fixed(width: 150, height: 150) {
-                            ...GatsbyContentfulFixed_withWebp
+                        fixed(width: 140, height: 140) {
+                            ...GatsbyContentfulFixed
                         }
                     }
                 }
@@ -54,22 +50,76 @@ const getItems = graphql`
     }
 `
 
+const getCategories = items => {
+    let tempItems = items.map(items => {
+        return items.node.category
+    })
+    let tempCategories = new Set(tempItems)
+    let categories = Array.from(tempCategories)
+    categories = ['all', ...categories]
+    return categories
+}
+
 const Menu = () => {
-    const { miniPasteis } = useStaticQuery(getItems)
-    const items = miniPasteis.edges
+    const { items } = useStaticQuery(getItems)
+    const allItems = items.edges
+
+    const [stateItems, setStateItems] = useState(allItems)
+
+    const categories = getCategories(allItems)
+    console.log(categories)
+
+    const handleItems = category => {
+        let tempItems = [...allItems]
+        if (category === 'all') {
+            setStateItems(tempItems)
+        } else {
+            let items = tempItems.filter(
+                ({ node }) => node.category === category
+            )
+            setStateItems(items)
+        }
+    }
 
     return (
-        <Section>
-            <Title title="São os mais pedidos" message="Esses" />
-            <Item>
-                {items.map(({ node }) => {
-                    return <MenuItem key={node.id} item={node} />
-                })}
-            </Item>
-            <AniLink fade to="/menu">
-                <SectionButton>Cardápio</SectionButton>
-            </AniLink>
-        </Section>
+        <>
+            {allItems.length > 0 ? (
+                <Section>
+                    <Title title="Mini" message="Pasteis" />
+                    <div>
+                        {categories.map((category, index) => {
+                            return (
+                                <button
+                                    onClick={() => {
+                                        handleItems(category)
+                                    }}
+                                    key={index}
+                                    type="button"
+                                >
+                                    {category}
+                                </button>
+                            )
+                        })}
+                    </div>
+                    <Item>
+                        {stateItems.map(({ node }) => {
+                            return <MenuItem key={node.id} item={node} />
+                        })}
+                    </Item>
+                </Section>
+            ) : (
+                <section>
+                    <div>
+                        <Title title="Best of our menu" />
+                        <div>
+                            <div>
+                                <h1>The are no to display</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+        </>
     )
 }
 
