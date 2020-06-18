@@ -22,12 +22,12 @@ const mapStyles = {
     height: 'auto',
 }
 
-const Location = props => {
+const Localizacao = props => {
     const coordinateLat =
         props.data.location.edges[0].node.results[0].geometry.location.lat
     const coordinateLng =
         props.data.location.edges[0].node.results[0].geometry.location.lng
-    console.log(coordinateLng)
+
     return (
         <Layout>
             <SEO title="Localização" />
@@ -78,4 +78,4 @@ export const query = graphql`
 
 export default GoogleApiWrapper({
     apiKey: process.env.GOOGLE_MAPS_GEOCODING_API_KEY,
-})(Location)
+})(Localizacao)

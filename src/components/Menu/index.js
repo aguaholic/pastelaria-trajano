@@ -67,7 +67,6 @@ const Menu = () => {
     const [stateItems, setStateItems] = useState(allItems)
 
     const categories = getCategories(allItems)
-    console.log(categories)
 
     const handleItems = category => {
         let tempItems = [...allItems]

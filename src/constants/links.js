@@ -6,22 +6,22 @@ export default [
     },
     {
         id: 1,
-        path: '/about',
+        path: '/sobre',
         text: 'Sobre',
     },
     {
         id: 2,
-        path: '/menu',
+        path: '/cardapio',
         text: 'Cardápio',
     },
     {
         id: 3,
-        path: '/contact',
+        path: '/contato',
         text: 'Contato',
     },
     {
         id: 4,
-        path: '/location',
+        path: '/localizacao',
         text: 'Localização',
     },
 ]

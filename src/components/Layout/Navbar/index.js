@@ -33,7 +33,6 @@ const Wrapper = styled.nav`
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false)
     const handleNavbar = () => setOpen(isOpen => !isOpen)
-    console.log(isOpen)
 
     return (
         <Wrapper>
