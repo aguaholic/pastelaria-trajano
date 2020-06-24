@@ -26,6 +26,10 @@ const Item = styled.div`
         grid-gap: 2rem;
     }
 `
+const CategoryTitle = styled.h1`
+    text-transform: capitalize;
+    margin-top: 15px;
+`
 
 const getItems = graphql`
     query {
@@ -121,7 +125,7 @@ const Menu = () => {
 
                             return (
                                 <>
-                                    <h3>{name}</h3>
+                                    <CategoryTitle>{name}</CategoryTitle>
                                     <Item>
                                         {items.map(item => {
                                             return (
