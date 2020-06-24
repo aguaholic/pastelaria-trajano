@@ -64,10 +64,24 @@ const Menu = () => {
     const { items } = useStaticQuery(getItems)
     const allItems = items.edges
 
+    const categoryMap = allItems.reduce((categoryMap, { node }) => {
+        return {
+            ...categoryMap,
+            [node.category]: categoryMap[node.category]
+                ? {
+                      ...categoryMap[node.category],
+                      items: [...categoryMap[node.category].items, node],
+                  }
+                : {
+                      categoryName: node.category,
+                      items: [node],
+                  },
+        }
+    }, {})
+
     const [stateItems, setStateItems] = useState(allItems)
 
     const categories = getCategories(allItems)
-
     const handleItems = category => {
         let tempItems = [...allItems]
         if (category === 'all') {
@@ -84,7 +98,7 @@ const Menu = () => {
         <>
             {allItems.length > 0 ? (
                 <Section>
-                    <Title title="Mini" message="Pasteis" />
+                    <Title title="Cardápio" message="Nosso" />
                     <div>
                         {categories.map((category, index) => {
                             return (
@@ -100,19 +114,36 @@ const Menu = () => {
                             )
                         })}
                     </div>
-                    <Item>
-                        {stateItems.map(({ node }) => {
-                            return <MenuItem key={node.id} item={node} />
+                    <div>
+                        {Object.keys(categoryMap).map(category => {
+                            const name = categoryMap[category].categoryName
+                            const items = categoryMap[category].items
+
+                            return (
+                                <>
+                                    <h3>{name}</h3>
+                                    <Item>
+                                        {items.map(item => {
+                                            return (
+                                                <MenuItem
+                                                    key={item.id}
+                                                    item={item}
+                                                />
+                                            )
+                                        })}
+                                    </Item>
+                                </>
+                            )
                         })}
-                    </Item>
+                    </div>
                 </Section>
             ) : (
                 <section>
                     <div>
-                        <Title title="Best of our menu" />
+                        <Title title="Os mais pedidos" />
                         <div>
                             <div>
-                                <h1>The are no to display</h1>
+                                <h1>Cade?</h1>
                             </div>
                         </div>
                     </div>
