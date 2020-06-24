@@ -48,7 +48,7 @@ const MenuItem = ({ item }) => {
             <div>
                 <div className="product-content">
                     <h4>{name}</h4>
-                    <h4>${price}0</h4>
+                    <h4>${price}</h4>
                 </div>
                 <p className="info">{description}</p>
             </div>

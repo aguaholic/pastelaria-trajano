@@ -32,7 +32,7 @@ const Item = styled.div`
 const getItems = graphql`
     query {
         items: allContentfulCardapio(
-            filter: { category: { eq: "minipastel" } }
+            filter: { category: { eq: "mini pastel" } }
             limit: 4
         ) {
             edges {
@@ -55,7 +55,7 @@ const getItems = graphql`
     }
 `
 
-const Menu = () => {
+const Featured = () => {
     const { items } = useStaticQuery(getItems)
     const allItems = items.edges
 
@@ -74,4 +74,4 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default Featured
