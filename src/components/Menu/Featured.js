@@ -67,7 +67,7 @@ const Menu = () => {
                     return <MenuItem key={node.id} item={node} />
                 })}
             </Item>
-            <AniLink fade to="/menu">
+            <AniLink fade to="/cardapio">
                 <SectionButton>Cardápio</SectionButton>
             </AniLink>
         </Section>

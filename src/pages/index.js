@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => (
                     subtitle="Melhor pastel do mundo"
                 >
                     <Button>
-                        <Link fade to="/menu">
+                        <Link fade to="/cardapio">
                             Cardápio
                         </Link>
                     </Button>
