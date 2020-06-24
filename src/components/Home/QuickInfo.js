@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { styles } from '../../utils'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Section from '../Section'
@@ -13,7 +12,7 @@ const Wrapper = styled.div`
 
     .text {
         line-height: 2rem;
-        color: ${styles.colors.mainGrey};
+        color: ${props => props.theme.colors.mainGrey};
         word-spacing: 0.2rem;
     }
 

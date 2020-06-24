@@ -1,19 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { styles } from '../utils'
+import Theme from '../components/Layout/Theme'
 
 const Wrapper = styled.div`
-    color: ${styles.colors.mainWhite};
+    color: ${props => props.theme.colors.mainWhite};
     text-align: center;
+    letter-spacing: ${props => props.theme.letterSpacing};
+
     .title {
         font-size: 3rem;
         text-transform: uppercase;
-        ${styles.letterSpacing({ spacing: '0.75rem' })}
     }
     .subtitle {
-        ${styles.textSlanted};
-        ${styles.letterSpacing({ spacing: '0.15rem' })};
+        font-family: ${props => props.theme.fontSlanted};
         font-size: 1.5rem;
         text-transform: capitalize;
     }
@@ -21,11 +20,13 @@ const Wrapper = styled.div`
 
 const Banner = ({ title, subtitle, children }) => {
     return (
-        <Wrapper>
-            <h1 className="title">{title}</h1>
-            <h2 className="subtitle">{subtitle}</h2>
-            {children}
-        </Wrapper>
+        <Theme>
+            <Wrapper>
+                <h1 className="title">{title}</h1>
+                <h2 className="subtitle">{subtitle}</h2>
+                {children}
+            </Wrapper>
+        </Theme>
     )
 }
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { styles } from '../../../utils'
+import Theme from '../Theme'
 import icons from '../../../constants/icons'
 
 const Wrapper = styled.div`
     .icon {
         font-size: 1.3rem;
         cursor: pointer;
-        ${styles.transFunction()};
+        transition: ${props => props.theme.tranSecondary};
     }
     .facebook-icon {
         color: #3b579d;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
         color: #3ab7f0;
     }
     .icon:hover {
-        color: ${styles.colors.mainYellow};
+        color: ${props => props.theme.colors.mainYellow};
     }
     display: ${props => (props.navbar ? 'none' : 'flex')};
     width: ${props => (props.navbar ? 'none' : '10rem')};
@@ -36,20 +36,22 @@ const Wrapper = styled.div`
 
 const Icons = ({ navbar }) => {
     return (
-        <Wrapper navbar={navbar}>
-            {icons.map(icon => {
-                return (
-                    <a
-                        key={icon.id}
-                        target="_blank"
-                        rel="noreferrer"
-                        href={icon.url}
-                    >
-                        {icon.icon}
-                    </a>
-                )
-            })}
-        </Wrapper>
+        <Theme>
+            <Wrapper navbar={navbar}>
+                {icons.map(icon => {
+                    return (
+                        <a
+                            key={icon.id}
+                            target="_blank"
+                            rel="noreferrer"
+                            href={icon.url}
+                        >
+                            {icon.icon}
+                        </a>
+                    )
+                })}
+            </Wrapper>
+        </Theme>
     )
 }
 

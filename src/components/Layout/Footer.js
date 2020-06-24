@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { styles } from '../../utils'
 
 import Icons from './Navbar/Icons'
 import Links from './Navbar/Links'
@@ -14,7 +12,7 @@ const Wrapper = styled.footer`
 
     .icon {
         color: #fff;
-        ${styles.transition({})}
+        transition: ${props => props.theme.transDefault};
     }
 
     .title {

@@ -67,6 +67,20 @@ const getCategories = items => {
 const Menu = () => {
     const { items } = useStaticQuery(getItems)
     const allItems = items.edges
+    const [stateItems, setStateItems] = useState(allItems)
+
+    const categories = getCategories(allItems)
+    const handleItems = category => {
+        let tempItems = [...stateItems]
+        if (category === 'all') {
+            setStateItems(tempItems)
+        } else {
+            let selectedItems = tempItems.filter(
+                ({ node }) => node.category === category
+            )
+            setStateItems(selectedItems)
+        }
+    }
 
     const categoryMap = allItems.reduce((categoryMap, { node }) => {
         return {
@@ -82,21 +96,6 @@ const Menu = () => {
                   },
         }
     }, {})
-
-    const [stateItems, setStateItems] = useState(allItems)
-
-    const categories = getCategories(allItems)
-    const handleItems = category => {
-        let tempItems = [...allItems]
-        if (category === 'all') {
-            setStateItems(tempItems)
-        } else {
-            let items = tempItems.filter(
-                ({ node }) => node.category === category
-            )
-            setStateItems(items)
-        }
-    }
 
     return (
         <>

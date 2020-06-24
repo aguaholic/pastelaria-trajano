@@ -68,6 +68,7 @@ const Contact = () => {
                             id="name"
                             className="formControl"
                             placeholder="Seu nome"
+                            aria-label="Insira seu nome"
                         />
                     </div>
                     <div>
@@ -77,6 +78,7 @@ const Contact = () => {
                             id="email"
                             className="formControl"
                             placeholder="Seu email"
+                            aria-label="Insira seu email"
                         />
                     </div>
                     <div>
@@ -86,12 +88,14 @@ const Contact = () => {
                             rows="10"
                             className="formControl"
                             placeholder="Escreva aqui sua mensagem"
+                            aria-label="Insira seu mensagem"
                         />
                     </div>
                     <input
                         type="submit"
                         value="Enviar mensagem"
                         className="submit"
+                        aria-label="Clique para enviar"
                     />
                 </form>
             </div>

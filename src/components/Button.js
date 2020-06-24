@@ -1,31 +1,30 @@
 import styled from 'styled-components'
-import { styles } from '../utils'
 
 export const Button = styled.button`
     display: block;
-    color: ${styles.colors.mainWhite};
+    color: ${props => props.theme.colors.mainYellow};
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
     font-weight: 700;
-    ${styles.border({ color: `${styles.colors.mainWhite}` })};
+    border: ${props => props.theme.border};
     margin: 2rem auto;
-    ${styles.transition({})};
+    transition: ${props => props.theme.transDefault};
     background: transparent;
     &:hover {
-        background: ${styles.colors.mainWhite};
-        color: ${styles.colors.mainBlack};
+        background: ${props => props.theme.mainWhite};
+        color: ${props => props.theme.colors.mainBlack};
         cursor: pointer;
     }
 `
 export const SectionButton = styled(Button)`
     font-size: 1.2rem;
-    color: ${styles.colors.mainBlack};
-    ${styles.border({ color: `${styles.colors.mainBlack}` })};
+    color: ${props => props.theme.colors.mainBlack};
+    border: ${props => props.theme.colors.mainBlack};
 
     &:hover {
-        background: ${styles.colors.mainBlack};
-        color: ${styles.colors.mainYellow};
+        background: ${props => props.theme.colors.mainBlack};
+        color: ${props => props.theme.colors.mainYellow};
     }
 `

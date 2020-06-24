@@ -8,13 +8,17 @@ const theme = {
         mainYellow: '#d2aa5c',
         mainGrey: '#474747',
     },
-    transDefault: 'transition:all 0.5s ease-in-out',
+    transDefault: 'all 0.5s ease-in-out',
+    tranSecondary: ' all 0.5s linear',
     fonts: ['sans-serif', 'Roboto'],
     fontSizes: {
         small: '1em',
         medium: '2em',
         large: '3em',
     },
+    fontSlanted: ['Caveat', 'cursive'],
+    border: [' 0.15rem solid white'],
+    letterSpacing: ['0.1rem'],
 }
 
 const Theme = ({ children }) => (
