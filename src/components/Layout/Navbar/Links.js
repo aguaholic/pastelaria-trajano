@@ -6,58 +6,44 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../../constants/links'
 
 const Wrapper = styled.ul`
-    li {
-        list-style-type: none;
-    }
-
-    ${({ navbar }) =>
-        navbar &&
-        `
-        .nav-link {
-        display: block;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        color: ${props => props.theme.colors.mainGrey};
-        font-weight: 700;
-        text-transform: capitalize;
-        cursor: pointer;
-        transition: ${props => props.theme.transDefault};
-
-        &:hover {
-            background:  ${props => props.theme.colors.mainGrey};
-            color: ${props => props.theme.colors.mainYellow};
-            padding: 0.5rem 1rem 0.5rem 1.3rem;
-        }
-    }
-
-    `}
-    height: ${props => (props.isOpen ? '152px' : '0px')};
-
-    ${({ footer }) =>
-        footer &&
-        `
-        display: flex;
-        justify-content: space-around;
-        height: 20px;
-
-        &:hover {
-            background: #262626;
-            color: #d2aa5c;
-        }
-    `}
-
+    height: ${props => (props.isOpen ? '190px' : '0px')};
     overflow: hidden;
-    transition: ${props => props.theme.tranSecondary};
+    transition: ${props => props.theme.transSecondary};
 
     @media (min-width: 768px) {
         height: auto;
         display: flex;
         margin: 0 auto;
-        .nav-link:hover {
-            background: ${props => props.theme.colors.mainWhite};
-            padding: 0.5rem 1rem;
-        }
     }
+
+    li {
+        list-style-type: none;
+    }
+
+    .nav-link {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-weight: 700;
+        transition: ${props => props.theme.transDefault};
+    }
+
+    ${({ navbar }) =>
+        navbar &&
+        `
+            .nav-link {
+                display: block;
+            }
+    `}
+
+    ${({ footer }) =>
+        footer &&
+        `
+            display: flex;
+            justify-content: space-around;
+            height: 20px;
+    `}
 `
 
 const Links = ({ isOpen, navbar, footer }) => {

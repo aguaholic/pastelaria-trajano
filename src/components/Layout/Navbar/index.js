@@ -11,6 +11,20 @@ const Wrapper = styled.nav`
         display: flex;
         align-items: center;
     }
+
+    .nav-link {
+        color: ${props => props.theme.colors.mainBlack};
+
+        &:hover {
+            color: ${props => props.theme.colors.mainYellow};
+        }
+
+        @media (max-width: 768px) {
+            &:hover {
+                padding: 0.5rem 1rem 0.5rem 1.3rem;
+            }
+        }
+    }
 `
 
 const Navbar = () => {

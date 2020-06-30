@@ -9,7 +9,7 @@ const theme = {
         mainGrey: '#474747',
     },
     transDefault: 'all 0.5s ease-in-out',
-    tranSecondary: ' all 0.5s linear',
+    transSecondary: 'all 0.5s linear',
     fonts: ['sans-serif', 'Roboto'],
     fontSizes: {
         small: '1em',

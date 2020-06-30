@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     .icon {
         font-size: 1.3rem;
         cursor: pointer;
-        transition: ${props => props.theme.tranSecondary};
+        transition: ${props => props.theme.transSecondary};
     }
     .facebook-icon {
         color: #3b579d;
