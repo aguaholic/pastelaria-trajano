@@ -34,7 +34,7 @@ const Navbar = () => {
     return (
         <Theme>
             <Wrapper>
-                <Header handleNavbar={handleNavbar} />
+                <Header handleNavbar={handleNavbar} isOpen={isOpen} />
                 <Links isOpen={isOpen} navbar className="nav-link" />
                 <Icons navbar />
             </Wrapper>
