@@ -60,26 +60,20 @@ const getCategories = items => {
     })
     let tempCategories = new Set(tempItems)
     let categories = Array.from(tempCategories)
-    categories = ['all', ...categories]
+    categories = ['Todos', ...categories]
     return categories
 }
 
 const Menu = () => {
     const { items } = useStaticQuery(getItems)
     const allItems = items.edges
-    const [stateItems, setStateItems] = useState(allItems)
+    const [currentCategory, setCategory] = useState('Todos')
 
     const categories = getCategories(allItems)
+
     const handleItems = category => {
-        let tempItems = [...stateItems]
-        if (category === 'all') {
-            setStateItems(tempItems)
-        } else {
-            let selectedItems = tempItems.filter(
-                ({ node }) => node.category === category
-            )
-            setStateItems(selectedItems)
-        }
+        setCategory(category)
+        console.log(category)
     }
 
     const categoryMap = allItems.reduce((categoryMap, { node }) => {
@@ -118,38 +112,37 @@ const Menu = () => {
                         })}
                     </div>
                     <div>
-                        {Object.keys(categoryMap).map(category => {
-                            const name = categoryMap[category].categoryName
-                            const items = categoryMap[category].items
-
-                            return (
-                                <>
-                                    <CategoryTitle>{name}</CategoryTitle>
-                                    <Item>
-                                        {items.map(item => {
-                                            return (
-                                                <MenuItem
-                                                    key={item.id}
-                                                    item={item}
-                                                />
-                                            )
-                                        })}
-                                    </Item>
-                                </>
+                        {Object.keys(categoryMap)
+                            .filter(category =>
+                                currentCategory === 'Todos'
+                                    ? true
+                                    : category === currentCategory
                             )
-                        })}
+                            .map((category, index) => {
+                                const name = categoryMap[category].categoryName
+                                const items = categoryMap[category].items
+
+                                return (
+                                    <div key={index}>
+                                        <CategoryTitle>{name}</CategoryTitle>
+                                        <Item>
+                                            {items.map(item => {
+                                                return (
+                                                    <MenuItem
+                                                        key={item.id}
+                                                        item={item}
+                                                    />
+                                                )
+                                            })}
+                                        </Item>
+                                    </div>
+                                )
+                            })}
                     </div>
                 </Section>
             ) : (
                 <section>
-                    <div>
-                        <Title title="Os mais pedidos" />
-                        <div>
-                            <div>
-                                <h1>Cade?</h1>
-                            </div>
-                        </div>
-                    </div>
+                    <h1>Cade?</h1>
                 </section>
             )}
         </>
