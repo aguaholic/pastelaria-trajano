@@ -7,6 +7,8 @@ import Icons from './Icons'
 import Links from './Links'
 
 const Wrapper = styled.nav`
+    position: relative;
+
     @media (min-width: 768px) {
         display: flex;
         align-items: center;

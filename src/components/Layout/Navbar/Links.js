@@ -6,11 +6,20 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../../constants/links'
 
 const Wrapper = styled.ul`
-    height: ${props => (props.isOpen ? '190px' : '0px')};
-    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    overflow-y: scroll;
+    width: 100%;
+    height: ${props => (props.isOpen ? '180px' : '0px')};
+    background-color: white;
+    text-align: left;
+    -webkit-overflow-scrolling: touch;
+    text-transform: capitalize;
     transition: ${props => props.theme.transSecondary};
 
     @media (min-width: 768px) {
+        position: relative;
+        justify-content: center;
         height: auto;
         display: flex;
         margin: 0 auto;
@@ -40,9 +49,11 @@ const Wrapper = styled.ul`
     ${({ footer }) =>
         footer &&
         `
+            position: relative;
             display: flex;
-            justify-content: space-around;
-            height: 20px;
+            justify-content: center;
+            height: 30px;
+            background-color: transparent;
     `}
 `
 

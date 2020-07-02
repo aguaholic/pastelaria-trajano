@@ -42,7 +42,7 @@ const Footer = () => {
         <Wrapper>
             <div className="title">Trajano Pastelaria</div>
             <Links footer />
-            <Icons />
+            <Icons footer />
             <div className="copyright">
                 copyright &copy; {new Date().getFullYear()} all rights reserved
             </div>
