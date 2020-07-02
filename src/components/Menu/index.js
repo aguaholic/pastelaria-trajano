@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import MenuItem from './MenuItem'
 import Title from '../Title'
 import Section from '../Section'
+import Dropdown from './Dropdown'
 
 const Item = styled.div`
     margin: 3rem 0;
@@ -73,7 +74,6 @@ const Menu = () => {
 
     const handleItems = category => {
         setCategory(category)
-        console.log(category)
     }
 
     const categoryMap = allItems.reduce((categoryMap, { node }) => {
@@ -96,21 +96,12 @@ const Menu = () => {
             {allItems.length > 0 ? (
                 <Section>
                     <Title title="Cardápio" message="Nosso" />
-                    <div>
-                        {categories.map((category, index) => {
-                            return (
-                                <button
-                                    onClick={() => {
-                                        handleItems(category)
-                                    }}
-                                    key={index}
-                                    type="button"
-                                >
-                                    {category}
-                                </button>
-                            )
-                        })}
-                    </div>
+                    <Dropdown
+                        headerTitle="Selecione"
+                        categories={categories}
+                        onSelectItems={handleItems}
+                    />
+
                     <div>
                         {Object.keys(categoryMap)
                             .filter(category =>
