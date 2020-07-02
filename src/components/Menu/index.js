@@ -27,9 +27,16 @@ const Item = styled.div`
         grid-gap: 2rem;
     }
 `
+
 const CategoryTitle = styled.h1`
     text-transform: capitalize;
     margin-top: 15px;
+`
+
+const DropdownContainer = styled.div`
+    margin: 30px 0;
+    display: flex;
+    justify-content: flex-end;
 `
 
 const getItems = graphql`
@@ -96,40 +103,38 @@ const Menu = () => {
             {allItems.length > 0 ? (
                 <Section>
                     <Title title="Cardápio" message="Nosso" />
-                    <Dropdown
-                        headerTitle="Selecione"
-                        categories={categories}
-                        onSelectItems={handleItems}
-                    />
-
-                    <div>
-                        {Object.keys(categoryMap)
-                            .filter(category =>
-                                currentCategory === 'Todos'
-                                    ? true
-                                    : category === currentCategory
+                    <DropdownContainer>
+                        <Dropdown
+                            headerTitle="Selecione"
+                            categories={categories}
+                            onSelectItems={handleItems}
+                        />
+                    </DropdownContainer>
+                    {Object.keys(categoryMap)
+                        .filter(category =>
+                            currentCategory === 'Todos'
+                                ? true
+                                : category === currentCategory
+                        )
+                        .map((category, index) => {
+                            const name = categoryMap[category].categoryName
+                            const items = categoryMap[category].items
+                            return (
+                                <div key={index}>
+                                    <CategoryTitle>{name}</CategoryTitle>
+                                    <Item>
+                                        {items.map(item => {
+                                            return (
+                                                <MenuItem
+                                                    key={item.id}
+                                                    item={item}
+                                                />
+                                            )
+                                        })}
+                                    </Item>
+                                </div>
                             )
-                            .map((category, index) => {
-                                const name = categoryMap[category].categoryName
-                                const items = categoryMap[category].items
-
-                                return (
-                                    <div key={index}>
-                                        <CategoryTitle>{name}</CategoryTitle>
-                                        <Item>
-                                            {items.map(item => {
-                                                return (
-                                                    <MenuItem
-                                                        key={item.id}
-                                                        item={item}
-                                                    />
-                                                )
-                                            })}
-                                        </Item>
-                                    </div>
-                                )
-                            })}
-                    </div>
+                        })}
                 </Section>
             ) : (
                 <section>
