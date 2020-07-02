@@ -4,9 +4,14 @@ import { ThemeProvider } from 'styled-components'
 const theme = {
     colors: {
         mainWhite: '#fff',
-        mainBlack: '#262626',
-        mainYellow: '#d2aa5c',
+        //mainBlack: '#262626',
+        // mainYellow: '#d2aa5c',
         mainGrey: '#474747',
+        mainOrange: '#e160306',
+        mainYellow: '#f9e784',
+        mainRed: '#720e07',
+        mainBlack: '#001514',
+        secondaryOrange: '#f96f5d',
     },
     transDefault: 'all 0.5s ease-in-out',
     transSecondary: 'all 0.5s linear',
