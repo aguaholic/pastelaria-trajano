@@ -12,7 +12,6 @@ const Wrapper = styled.div`
         text-transform: uppercase;
     }
     .subtitle {
-        font-family: ${props => props.theme.fontSlanted};
         font-size: 1.5rem;
         text-transform: capitalize;
     }

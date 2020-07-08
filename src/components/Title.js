@@ -6,7 +6,6 @@ const Wrapper = styled.div`
     text-align: center;
 
     .message {
-        font-family: ${props => props.theme.fontSlanted};
         letter-spacing: ${props => props.theme.letterSpacing};
         font-size: 2rem;
         color: ${props => props.theme.mainYellow};

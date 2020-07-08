@@ -6,20 +6,18 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 
 const GlobalStyle = createGlobalStyle`
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        text-decoration:none;
+        text-decoration: none;
     }
 
     body {
-        font-family: Lato, "Lucida Grande", Tahoma, Sans-Serif;
+        font-family: Montserrat, "Lucida Grande", Tahoma, Sans-Serif;
         color:#262626;
         background:#fff;
-}
+    }
 `
 
 const Layout = ({ children }) => {

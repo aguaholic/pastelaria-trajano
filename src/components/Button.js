@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
+    font-family: Montserrat, 'Lucida Grande', Tahoma, Sans-Serif;
     display: block;
     padding: 0.5rem 1rem;
     text-transform: uppercase;
