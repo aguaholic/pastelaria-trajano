@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     }
 
     .twitter-icon {
-        color: #3ab7f0;
+        color: #25d366;
     }
 
     .icon:hover {

@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Theme from '../Theme'
-import logo from '../../../images/logo.svg'
+import logo from '../../../images/logo-pastelaria.png'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const Wrapper = styled.nav`
+    position: relative;
     padding: 0.4rem 1rem;
     display: flex;
     align-items: center;
@@ -25,12 +26,28 @@ const Wrapper = styled.nav`
     }
 `
 
+const Logo = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .logo {
+        max-width: 15rem;
+    }
+`
+
 const Header = ({ handleNavbar, isOpen }) => {
     return (
         <Theme>
             <Wrapper>
                 <AniLink fade to="/">
-                    <img src={logo} alt="Trajano Pastelaria" />
+                    <Logo>
+                        <img
+                            className="logo"
+                            src={logo}
+                            alt="Trajano Pastelaria"
+                        />
+                    </Logo>
                 </AniLink>
                 {!isOpen ? (
                     <FaBars

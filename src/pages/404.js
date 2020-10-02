@@ -19,7 +19,7 @@ const NotFoundPage = ({ data }) => (
                 </Hero>
             </header>
             <AniLink fade to="/" className="btn-white">
-                <SectionButton>Home </SectionButton>
+                <SectionButton>Voltar </SectionButton>
             </AniLink>
         </Layout>
     </Theme>

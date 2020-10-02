@@ -5,6 +5,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
+import Section from '../components/Section'
 import Banner from '../components/Banner'
 import SEO from '../components/seo'
 
@@ -34,6 +35,11 @@ const Localizacao = props => {
             <Hero img={props.data.menuBcg.childImageSharp.fluid}>
                 <Banner title="Nossa" subtitle="Localização" />
             </Hero>
+            <Section>
+                <h1>Rua Atilio Bortolan </h1>
+                <h1>Vila Anita</h1>
+                <h1>Limeira - SP</h1>
+            </Section>
             <Wrapper>
                 <Map
                     google={props.google}

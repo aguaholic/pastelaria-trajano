@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { SectionButton } from '../components/Button'
+
 const Wrapper = styled.section`
     margin-top: 16px;
 
@@ -34,21 +36,6 @@ const Wrapper = styled.section`
         padding: 0.375rem 0.75rem;
         border: ${props => `1px solid ${props.theme.colors.mainGrey}`};
         border-radius: 0.25rem;
-    }
-
-    .submit {
-        background-color: ${props => props.theme.colors.mainGrey};
-        border: ${props => `1px solid ${props.theme.colors.mainGrey}`};
-        text-transform: uppercase;
-        color: ${props => props.theme.colors.mainWhite};
-        transition: all 0.5s ease-in-out;
-        cursor: pointer;
-    }
-
-    .submit:hover {
-        background-color: ${props => props.theme.colors.mainYellow};
-        color: ${props => props.theme.colors.mainWhite};
-        border-color: ${props => props.theme.colors.mainYellow};
     }
 `
 
@@ -91,12 +78,13 @@ const Contact = () => {
                             aria-label="Insira seu mensagem"
                         />
                     </div>
-                    <input
+                    <SectionButton
                         type="submit"
-                        value="Enviar mensagem"
                         className="submit"
                         aria-label="Clique para enviar"
-                    />
+                    >
+                        Enviar mensagem
+                    </SectionButton>
                 </form>
             </div>
         </Wrapper>

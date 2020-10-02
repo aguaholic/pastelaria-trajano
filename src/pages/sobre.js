@@ -10,7 +10,10 @@ const About = ({ data }) => (
     <Layout>
         <SEO title="About" />
         <Hero img={data.aboutBcg.childImageSharp.fluid}>
-            <Banner title="about us" subtitle="Nossa história" />
+            <Banner
+                title="Vamos contar um pouco da"
+                subtitle="Nossa história"
+            />
         </Hero>
     </Layout>
 )

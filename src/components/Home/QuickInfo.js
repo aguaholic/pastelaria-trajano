@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 const QuickInfo = () => {
     return (
         <Section>
-            <Title message="Nós queremos te contar" title="A nossa missão" />
+            <Title message="Nós queremos te contar" title="A nossa história" />
             <Wrapper>
                 <p className="text">
                     Velit officia excepteur dolor quis ullamco Lorem et laborum

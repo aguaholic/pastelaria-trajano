@@ -11,7 +11,8 @@ const Hero = ({ img, className, children, home }) => {
 }
 
 export default styled(Hero)`
-    min-height: ${props => (props.home ? 'calc(100vh - 62px)' : '50vh')};
+    min-height: ${props => (props.home ? 'calc(100vh - 62px)' : '70vh')};
+    margin-bottom: 20px;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
     background-position: center;
     background-size: cover;
