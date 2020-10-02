@@ -23,7 +23,7 @@ const Wrapper = styled.div`
         color: #da5f53;
     }
 
-    .twitter-icon {
+    .whatsapp-icon {
         color: #25d366;
     }
 

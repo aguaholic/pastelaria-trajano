@@ -15,6 +15,6 @@ export default [
     {
         id: 2,
         icon: <FaWhatsapp className="icon whatsapp-icon" />,
-        url: 'https://whatsapp.com',
+        url: 'https://wa.me/5519997006287',
     },
 ]
