@@ -75,7 +75,7 @@ const getCategories = items => {
 const Menu = () => {
     const { items } = useStaticQuery(getItems)
     const allItems = items.edges
-    const [currentCategory, setCategory] = useState('Todos')
+    const [currentCategory, setCategory] = useState('')
 
     const categories = getCategories(allItems)
 
@@ -105,14 +105,16 @@ const Menu = () => {
                     <Title title="Cardápio" message="Nosso" />
                     <DropdownContainer>
                         <Dropdown
-                            headerTitle="Selecione"
+                            placeholder="Selecione"
+                            headerTitle={currentCategory}
                             categories={categories}
                             onSelectItems={handleItems}
                         />
                     </DropdownContainer>
                     {Object.keys(categoryMap)
                         .filter(category =>
-                            currentCategory === 'Todos'
+                            currentCategory === 'Todos' ||
+                            currentCategory === ''
                                 ? true
                                 : category === currentCategory
                         )

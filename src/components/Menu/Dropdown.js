@@ -32,6 +32,7 @@ const Header = styled.div`
 const HeaderTitle = styled.div`
     margin: 2px 10px;
     margin-right: 30px;
+    text-transform: capitalize;
 `
 
 const List = styled.ul`
@@ -69,7 +70,7 @@ const ListItem = styled.li`
     }
 `
 
-const Dropdown = ({ categories, onSelectItems, headerTitle }) => {
+const Dropdown = ({ categories, onSelectItems, headerTitle, placeholder }) => {
     const [listOpen, setListOpen] = useState(false)
 
     const toggleList = () => setListOpen(listOpen => !listOpen)
@@ -77,7 +78,9 @@ const Dropdown = ({ categories, onSelectItems, headerTitle }) => {
     return (
         <Wrapper>
             <Header onClick={() => toggleList()}>
-                <HeaderTitle>{headerTitle}</HeaderTitle>
+                <HeaderTitle>
+                    {headerTitle ? headerTitle : placeholder}
+                </HeaderTitle>
                 {listOpen ? (
                     <FaAngleUp className="icon" />
                 ) : (
@@ -91,6 +94,7 @@ const Dropdown = ({ categories, onSelectItems, headerTitle }) => {
                             key={index}
                             onClick={() => {
                                 onSelectItems(category)
+                                setListOpen(false)
                             }}
                         >
                             {category}
