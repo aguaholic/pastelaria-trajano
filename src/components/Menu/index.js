@@ -39,21 +39,27 @@ const DropdownContainer = styled.div`
     justify-content: flex-end;
 `
 
-const getItems = graphql`
+const getCategories = graphql`
     query {
-        items: allContentfulCardapio {
+        categories: allContentfulCardapioCategory(
+            sort: { fields: [order], order: ASC }
+        ) {
             edges {
                 node {
-                    id: contentful_id
-                    name: nome
-                    price
-                    category
-                    description {
-                        description
-                    }
-                    image: imagem {
-                        fixed(width: 140, height: 140) {
-                            ...GatsbyContentfulFixed
+                    id
+                    name
+                    order
+                    items: menuItemReferences {
+                        id: contentful_id
+                        name: nome
+                        price
+                        description {
+                            description
+                        }
+                        image: imagem {
+                            fixed(width: 140, height: 140) {
+                                ...GatsbyContentfulFixed
+                            }
                         }
                     }
                 }
@@ -62,88 +68,46 @@ const getItems = graphql`
     }
 `
 
-const getCategories = items => {
-    let tempItems = items.map(items => {
-        return items.node.category
-    })
-    let tempCategories = new Set(tempItems)
-    let categories = Array.from(tempCategories)
-    categories = ['Todos', ...categories]
-    return categories
-}
-
 const Menu = () => {
-    const { items } = useStaticQuery(getItems)
-    const allItems = items.edges
+    const { categories } = useStaticQuery(getCategories)
     const [currentCategory, setCategory] = useState('')
-
-    const categories = getCategories(allItems)
 
     const handleItems = category => {
         setCategory(category)
     }
 
-    const categoryMap = allItems.reduce((categoryMap, { node }) => {
-        return {
-            ...categoryMap,
-            [node.category]: categoryMap[node.category]
-                ? {
-                      ...categoryMap[node.category],
-                      items: [...categoryMap[node.category].items, node],
-                  }
-                : {
-                      categoryName: node.category,
-                      items: [node],
-                  },
-        }
-    }, {})
-
     return (
-        <>
-            {allItems.length > 0 ? (
-                <Section>
-                    <Title title="Cardápio" message="Nosso" />
-                    <DropdownContainer>
-                        <Dropdown
-                            placeholder="Selecione"
-                            headerTitle={currentCategory}
-                            categories={categories}
-                            onSelectItems={handleItems}
-                        />
-                    </DropdownContainer>
-                    {Object.keys(categoryMap)
-                        .filter(category =>
-                            currentCategory === 'Todos' ||
-                            currentCategory === ''
-                                ? true
-                                : category === currentCategory
-                        )
-                        .map((category, index) => {
-                            const name = categoryMap[category].categoryName
-                            const items = categoryMap[category].items
-                            return (
-                                <div key={index}>
-                                    <CategoryTitle>{name}</CategoryTitle>
-                                    <Item>
-                                        {items.map(item => {
-                                            return (
-                                                <MenuItem
-                                                    key={item.id}
-                                                    item={item}
-                                                />
-                                            )
-                                        })}
-                                    </Item>
-                                </div>
-                            )
-                        })}
-                </Section>
-            ) : (
-                <section>
-                    <h1>Cade?</h1>
-                </section>
-            )}
-        </>
+        <Section>
+            <Title title="Cardápio" message="Nosso" />
+            <DropdownContainer>
+                <Dropdown
+                    placeholder="Selecione"
+                    headerTitle={currentCategory}
+                    categories={categories}
+                    onSelectItems={handleItems}
+                />
+            </DropdownContainer>
+            {categories.edges
+                .filter(category => {
+                    return currentCategory === 'Todos' || currentCategory === ''
+                        ? true
+                        : category.node.name === currentCategory
+                })
+                .map(category => {
+                    return (
+                        <div key={category.node.id}>
+                            <CategoryTitle>{category.node.name}</CategoryTitle>
+                            <Item>
+                                {category.node.items.map(item => {
+                                    return (
+                                        <MenuItem key={item.id} item={item} />
+                                    )
+                                })}
+                            </Item>
+                        </div>
+                    )
+                })}
+        </Section>
     )
 }
 
