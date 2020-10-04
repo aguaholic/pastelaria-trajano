@@ -6,10 +6,6 @@ import { SectionButton } from '../components/Button'
 const Wrapper = styled.section`
     margin-top: 16px;
 
-    .contact {
-        padding: 4rem 0;
-    }
-
     .center {
         width: 80vw;
         margin: 0 auto;
@@ -18,7 +14,6 @@ const Wrapper = styled.section`
     @media screen and (min-width: 992px) {
         .center {
             width: 50vw;
-            margin: 0 auto;
         }
     }
 
@@ -41,7 +36,7 @@ const Wrapper = styled.section`
 
 const Contact = () => {
     return (
-        <Wrapper className="contact">
+        <Wrapper>
             <div className="center">
                 <form
                     action="https://formspree.io/mzbjgnzq"
