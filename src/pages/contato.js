@@ -17,11 +17,23 @@ const Wrapper = styled.div`
     @media (min-width: 992px) {
         width: 50vw;
     }
+
+    address {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        font-size: 1rem;
+
+        hr {
+            margin: 1rem 0;
+            width: 15vw;
+        }
+    }
 `
 
 const LinkContainer = styled.div`
-    margin: 0 auto 1rem;
+    margin: 0 auto 3rem auto;
     border: 0.5rem solid #face33;
+    border-radius: 60px;
     padding: 0.5rem;
 
     display: inline-flex;
@@ -56,6 +68,14 @@ const Contact = ({ data }) => (
                 <Banner title="Fale conosco" />
             </Hero>
             <Wrapper>
+                <address>
+                    <h1>Endereço</h1>
+                    <hr />
+                    Atilio Bortolan, 1234 <br />
+                    13480-200 <br />
+                    Limeira - SP
+                    <hr />
+                </address>
                 <a
                     target="_blank"
                     rel="noreferrer"

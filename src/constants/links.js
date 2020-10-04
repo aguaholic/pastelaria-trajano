@@ -19,9 +19,4 @@ export default [
         path: '/contato',
         text: 'Contato',
     },
-    {
-        id: 4,
-        path: '/localizacao',
-        text: 'Localização',
-    },
 ]

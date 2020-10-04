@@ -19,7 +19,6 @@
     "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-source-contentful": "^2.3.15",
     "gatsby-source-filesystem": "^2.3.8",
-    "gatsby-source-googlemaps-geocoding": "^1.0.0",
     "gatsby-transformer-sharp": "^2.5.3",
     "google-maps-react": "^2.0.6",
     "gsap": "^3.3.1",
