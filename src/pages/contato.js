@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import { FaWhatsapp } from 'react-icons/fa'
 
 import Theme from '../components/Layout/Theme'
 import Layout from '../components/Layout'
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
         color: ${props => props.theme.colors.mainGrey};
         word-spacing: 0.2rem;
         text-align: center;
+        margin-bottom: 1rem;
     }
 
     @media (min-width: 768px) {
@@ -29,6 +31,23 @@ const Wrapper = styled.div`
     }
 `
 
+const LinkContainer = styled.div`
+    display: inline-flex;
+    margin: auto;
+
+    a {
+        color: #000;
+        :hover {
+            text-shadow: 3px 5px 2px #e8e8e8;
+        }
+    }
+
+    .whatsapp-icon {
+        font-size: 4rem;
+        color: #25d366;
+    }
+`
+
 const Contact = ({ data }) => (
     <Theme>
         <Layout>
@@ -37,10 +56,18 @@ const Contact = ({ data }) => (
                 <Banner title="Fale conosco" />
             </Hero>
             <Wrapper>
-                <h2 className="text">
-                    Você gostaria nos mandar uma mensagem com perguntas ou
-                    sugestões? Entre em contato conosco!
-                </h2>
+                <h2 className="text">Pedidos, sugestões ou perguntas?</h2>
+                <LinkContainer>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://wa.me/5519997006287?text=Pastelaria%20Trajano"
+                    >
+                        <p>Clique aqui para mandar uma mensagem por Whatsapp</p>
+
+                        <FaWhatsapp className="whatsapp-icon" />
+                    </a>
+                </LinkContainer>
             </Wrapper>
             <ContactForm />
         </Layout>
