@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Theme from '../Theme'
-import Header from './Header'
+import Hamburger from './Hamburger'
 import Icons from './Icons'
 import Links from './Links'
 
@@ -33,8 +33,15 @@ const Wrapper = styled.nav`
 `
 
 const Logo = styled.div`
-    .logo {
-        max-width: 10rem;
+    img {
+        max-width: 12rem;
+        margin-left: 0.7rem;
+    }
+
+    @media (max-width: 768px) {
+        img {
+            max-width: 10rem;
+        }
     }
 `
 
@@ -47,14 +54,10 @@ const Navbar = () => {
             <Wrapper>
                 <AniLink fade to="/">
                     <Logo>
-                        <img
-                            className="logo"
-                            src={logo}
-                            alt="Trajano Pastelaria"
-                        />
+                        <img src={logo} alt="Trajano Pastelaria" />
                     </Logo>
                 </AniLink>
-                <Header handleNavbar={handleNavbar} isOpen={isOpen} />
+                <Hamburger handleNavbar={handleNavbar} isOpen={isOpen} />
                 <Links isOpen={isOpen} navbar className="nav-link" />
                 <Icons navbar />
             </Wrapper>

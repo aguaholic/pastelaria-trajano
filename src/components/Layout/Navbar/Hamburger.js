@@ -5,12 +5,11 @@ import Theme from '../Theme'
 
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-const Wrapper = styled.nav`
-    /* position: relative; */
-    padding: 0.4rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+const Wrapper = styled.div`
+    position: absolute;
+
+    right: 1rem;
+    top: 2rem;
 
     .toggle-icon {
         font-size: 1.75rem;
@@ -25,7 +24,7 @@ const Wrapper = styled.nav`
     }
 `
 
-const Header = ({ handleNavbar, isOpen }) => {
+const Hamburger = ({ handleNavbar, isOpen }) => {
     return (
         <Theme>
             <Wrapper>
@@ -49,4 +48,4 @@ const Header = ({ handleNavbar, isOpen }) => {
     )
 }
 
-export default Header
+export default Hamburger
