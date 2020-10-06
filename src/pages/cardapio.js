@@ -13,7 +13,7 @@ const Menu = ({ data }) => (
         <Layout>
             <SEO title="Menu" />
             <Hero img={data.menuBcg.childImageSharp.fluid}>
-                <Banner title="Our Menu" subtitle="É hora de comer!" />
+                <Banner title="Nosso cardápio" subtitle="É hora de comer!" />
             </Hero>
             <MenuComponent />
         </Layout>
