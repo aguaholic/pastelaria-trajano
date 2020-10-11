@@ -26,18 +26,20 @@ const Grid = styled.div`
 
 const getItems = graphql`
     query {
-        items: allContentfulCardapio(limit: 4) {
+        items: allContentfulDestaque(sort: { fields: createdAt }, limit: 1) {
             edges {
                 node {
-                    id: contentful_id
-                    name
-                    price
-                    description {
-                        description
-                    }
-                    image {
-                        fixed(width: 140, height: 140) {
-                            ...GatsbyContentfulFixed_withWebp
+                    featuredMenuItems {
+                        id: contentful_id
+                        name
+                        price
+                        description {
+                            description
+                        }
+                        image {
+                            fixed(width: 140, height: 140) {
+                                ...GatsbyContentfulFixed_withWebp
+                            }
                         }
                     }
                 }
@@ -48,13 +50,13 @@ const getItems = graphql`
 
 const Featured = () => {
     const { items } = useStaticQuery(getItems)
-    const allItems = items.edges
+    const allItems = items.edges[0].node.featuredMenuItems
 
     return (
         <Section>
             <Title title="São os mais pedidos" message="Esses" />
             <Grid>
-                {allItems.map(({ node }) => {
+                {allItems.map(node => {
                     return <MenuItem key={node.id} item={node} />
                 })}
             </Grid>
