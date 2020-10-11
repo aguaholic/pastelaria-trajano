@@ -10,10 +10,12 @@ import Links from './Links'
 import logo from '../../../images/logo-pastelaria.png'
 
 const Wrapper = styled.nav`
+    height: 5.5rem;
     position: relative;
 
     @media (min-width: 768px) {
         display: flex;
+        height: 7rem;
         align-items: center;
     }
 
