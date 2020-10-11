@@ -5,12 +5,18 @@ import Theme from '../Theme'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import links from '../../../constants/links'
 
+const LINK_HEIGHT = 36
+
 const Wrapper = styled.ul`
     position: absolute;
     z-index: 10;
     overflow-y: scroll;
+    height: ${props =>
+        props.isOpen
+            ? React.Children.toArray(props.children).length * LINK_HEIGHT
+            : 0}px;
     width: 100%;
-    height: ${props => (props.isOpen ? '180px' : '0px')};
+
     background-color: white;
     text-align: left;
     -webkit-overflow-scrolling: touch;
