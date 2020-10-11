@@ -8,19 +8,14 @@ import Title from '../Title'
 import Section from '../Section'
 import { SectionButton } from '../Button'
 
-const Item = styled.div`
-    margin: 3rem 0;
+const Grid = styled.div`
     display: grid;
-    grid-template-columns: 100%;
     grid-row-gap: 3rem;
+    margin: 3rem 0;
+    justify-items: center;
 
     @media (min-width: 576px) {
         grid-template-columns: 95%;
-    }
-
-    @media (min-width: 776px) {
-        grid-template-columns: 80%;
-        justify-content: center;
     }
 
     @media (min-width: 992px) {
@@ -62,11 +57,11 @@ const Featured = () => {
     return (
         <Section>
             <Title title="São os mais pedidos" message="Esses" />
-            <Item>
+            <Grid>
                 {allItems.map(({ node }) => {
                     return <MenuItem key={node.id} item={node} />
                 })}
-            </Item>
+            </Grid>
             <AniLink fade to="/cardapio">
                 <SectionButton>Cardápio</SectionButton>
             </AniLink>

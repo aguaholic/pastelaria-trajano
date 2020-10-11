@@ -3,19 +3,13 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
-    @media (min-width: 576px) {
-        width: 90%;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-column-gap: 1rem;
-    }
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1rem;
 
     @media (min-width: 768px) {
-        width: 70%;
-    }
-
-    @media (min-width: 992px) {
-        width: 60%;
+        width: 80%;
     }
 
     .product-content {
@@ -47,7 +41,7 @@ const MenuItem = ({ item }) => {
             <Img fixed={fixed} alt={name} />
             <div>
                 <div className="product-content">
-                    <h4>{name}</h4>
+                    <h4 className="name">{name}</h4>
                     <h4>${price.toFixed(2)}</h4>
                 </div>
                 <p className="info">{description}</p>
