@@ -26,20 +26,16 @@ const Grid = styled.div`
 
 const getItems = graphql`
     query {
-        items: allContentfulCardapio(
-            filter: { category: { eq: "mini pastel" } }
-            limit: 4
-        ) {
+        items: allContentfulCardapio(limit: 4) {
             edges {
                 node {
                     id: contentful_id
-                    name: nome
+                    name
                     price
-                    category
                     description {
                         description
                     }
-                    image: imagem {
+                    image {
                         fixed(width: 140, height: 140) {
                             ...GatsbyContentfulFixed_withWebp
                         }

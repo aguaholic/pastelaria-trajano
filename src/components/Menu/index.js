@@ -51,12 +51,12 @@ const getCategories = graphql`
                     order
                     items: menuItemReferences {
                         id: contentful_id
-                        name: nome
+                        name
                         price
                         description {
                             description
                         }
-                        image: imagem {
+                        image {
                             fixed(width: 140, height: 140) {
                                 ...GatsbyContentfulFixed
                             }
