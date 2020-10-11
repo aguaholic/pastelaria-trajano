@@ -48,7 +48,7 @@ const Gallery = () => {
     return (
         <Section>
             <GalleryWrapper>
-                {images.map(({ node, index }) => {
+                {images.map(({ node }, index) => {
                     return (
                         <div key={index}>
                             <Img
