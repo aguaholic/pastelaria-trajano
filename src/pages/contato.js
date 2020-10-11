@@ -71,10 +71,17 @@ const Contact = ({ data }) => (
                 <address>
                     <h1>Endereço</h1>
                     <hr />
-                    Atilio Bortolan, 1234 <br />
+                    Rua Atílio Bortolan, 1234 <br />
                     13480-200 <br />
                     Limeira - SP
                     <hr />
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.google.com/maps/dir/?api=1&destination=Trajano+Pastelaria+e+Pestiscaria,+Rua+Armindo+Tank,+139+-+Vila+Anita,+Limeira+-+SP,+13484-299,+Brazil"
+                    >
+                        Ver no mapa
+                    </a>
                 </address>
                 <a
                     target="_blank"
