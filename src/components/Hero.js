@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Hero = ({ img, className, children, home }) => {
     return (
         <BackgroundImage className={className} fluid={img} home={home}>
-            {children}
+            {home ? <div className="banner">{children}</div> : children}
         </BackgroundImage>
     )
 }
@@ -13,13 +13,26 @@ const Hero = ({ img, className, children, home }) => {
 export default styled(Hero)`
     min-height: ${props => (props.home ? 'calc(90vh - 62px)' : '50vh')};
     margin-bottom: 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+
+    ${props => !props.home && 'background: rgba(0, 0, 0, 0.7);'}
+
+    .banner {
+        height: 25rem;
+        background: rgba(0, 0, 0, 0.7);
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+    }
 
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
     opacity: 1 !important;
     display: flex;
+    align-items: ${props => (props.home ? 'flex-end' : 'center')};
     justify-content: center;
-    align-items: center;
 `
