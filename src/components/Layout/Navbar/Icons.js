@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     }
 
     .icon:hover {
-        color: ${props => props.theme.colors.mainYellow};
+        color: ${props => props.theme.colors.mainOrange};
     }
 
     display: flex;

@@ -23,7 +23,7 @@ const Wrapper = styled.nav`
         color: ${props => props.theme.colors.mainBlack};
 
         &:hover {
-            color: ${props => props.theme.colors.mainYellow};
+            color: ${props => props.theme.colors.mainOrange};
         }
 
         @media (max-width: 768px) {

@@ -32,7 +32,7 @@ const Wrapper = styled.footer`
         color: #fff;
 
         &:hover {
-            color: #d2aa5c;
+            color: ${props => props.theme.colors.mainOrange};
         }
     }
 `

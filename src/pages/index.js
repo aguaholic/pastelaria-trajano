@@ -24,10 +24,7 @@ const IndexPage = ({ data }) => (
         <Layout>
             <SEO title="Home" />
             <Hero home img={data.homeBcg.childImageSharp.fluid}>
-                <Banner
-                    title="Trajano Pastelaria"
-                    subtitle="Melhor pastel do mundo"
-                >
+                <Banner title="Trajano Pastelaria" subtitle="Escolha o melhor">
                     <Button>
                         <Link fade to="/cardapio">
                             Cardápio

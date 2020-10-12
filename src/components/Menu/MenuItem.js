@@ -17,7 +17,7 @@ const Wrapper = styled.div`
         justify-content: space-between;
         font-size: 1.4rem;
         text-transform: uppercase;
-        color: ${props => props.theme.colors.mainYellow};
+        color: ${props => props.theme.colors.mainOrange};
         margin-top: 0.5rem;
     }
 

@@ -3,17 +3,19 @@ import styled from 'styled-components'
 import Theme from '../components/Layout/Theme'
 
 const Wrapper = styled.div`
-    color: ${props => props.theme.colors.mainWhite};
+    /* color: ${props => props.theme.colors.mainWhite}; */
     text-align: center;
     letter-spacing: ${props => props.theme.letterSpacing};
+    text-transform: uppercase;
 
     .title {
         font-size: 3rem;
-        text-transform: uppercase;
+        color: ${props => props.theme.colors.mainOrange};
     }
+
     .subtitle {
         font-size: 1.5rem;
-        text-transform: capitalize;
+        color: ${props => props.theme.colors.mainYellow};
     }
 `
 

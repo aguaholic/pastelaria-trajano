@@ -14,11 +14,11 @@ export default styled(Hero)`
     min-height: ${props => (props.home ? 'calc(90vh - 62px)' : '50vh')};
     margin-bottom: 20px;
 
-    ${props => !props.home && 'background: rgba(0, 0, 0, 0.7);'}
+    ${props => !props.home && 'background: rgba(0, 0, 0, 0.5);'}
 
     .banner {
-        height: 25rem;
-        background: rgba(0, 0, 0, 0.7);
+        height: 23rem;
+        background: rgba(0, 0, 0, 0.5);
 
         display: flex;
 
